@@ -1,0 +1,55 @@
+<mvc:View controllerName="api.v1.z08econtabilidadeapi.controller.Itens"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar">
+    
+    <Page id="pageItens" title="Consulta de Itens de Documentos Contábeis" showNavButton="true" navButtonPress="onNavBack">
+        <content>   
+            
+            <smartFilterBar:SmartFilterBar id="smartFilterBarItens" entitySet="itens_documentos_contabeis">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="cfgDoc" key="documentNumber" visibleInAdvancedArea="true" />
+                    <smartFilterBar:ControlConfiguration id="cfgEmp" key="companyCode" visibleInAdvancedArea="true" />
+                    <smartFilterBar:ControlConfiguration id="cfgAno" key="fiscalYear" visibleInAdvancedArea="true" />
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+            
+            <smartTable:SmartTable 
+                id="smartTableItens" 
+                tableType="ResponsiveTable" 
+                editable="false" 
+                entitySet="itens_documentos_contabeis" 
+                header="Itens Encontrados" 
+                showRowCount="true"  
+                enableExport="true" 
+                enableAutoBinding="true"  
+                smartFilterId="smartFilterBarItens">
+                
+                <Table id="tableItens">
+                    <columns>
+                        <Column id="colEmpresa"><header><Text text="Empresa" /></header></Column>
+                        <Column id="colAno"><header><Text text="Ano Fiscal" /></header></Column>
+                        <Column id="colItem"><header><Text text="Nº Item" /></header></Column>
+                        <Column id="colConta"><header><Text text="Conta Contábil" /></header></Column>
+                        <Column id="colDebCred"><header><Text text="D/C" /></header></Column>
+                        <Column id="colValor"><header><Text text="Valor" /></header></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="itemTemplate">
+                            <cells>
+                                <Text text="{companyCode}" />
+                                <Text text="{fiscalYear}" />
+                                <Text text="{itemNumber}" />
+                                <Text text="{glAccount}" />
+                                <Text text="{debitCreditCode}" />
+                                <Text text="{amount} {currency}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </smartTable:SmartTable>
+
+        </content>
+    </Page>
+</mvc:View>

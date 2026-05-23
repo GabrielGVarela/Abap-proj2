@@ -1,0 +1,47 @@
+<mvc:View controllerName="api.v1.z08econtabilidadeapi.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar">
+    
+    <Page id="pageHeader" title="Documentos Contábeis">
+        <content>   
+            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="documentos_contabeis">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="controlConfig"
+                        key="documentNumber" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" />
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+            
+            <smartTable:SmartTable 
+                id="smartTable" 
+                tableType="ResponsiveTable" 
+                editable="false" 
+                entitySet="documentos_contabeis" 
+                header="Documentos" 
+                showRowCount="true"  
+                enableExport="true" 
+                enableAutoBinding="true"  
+                smartFilterId="smartFilterBar">
+                
+                <Table id="tableHeader">
+                    <columns>
+                        <Column id="colDoc"><header><Text text="Nº Documento" /></header></Column>
+                        <Column id="colEmp"><header><Text text="Empresa" /></header></Column>
+                        <Column id="colDat"><header><Text text="Data Lançamento" /></header></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation" press="onItemPress">
+                            <cells>
+                                <Text text="{documentNumber}" />
+                                <Text text="{companyCode}" />
+                                <Text text="{documentDate}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+            </smartTable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
