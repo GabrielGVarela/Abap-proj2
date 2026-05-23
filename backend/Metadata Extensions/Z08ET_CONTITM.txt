@@ -1,0 +1,42 @@
+@Metadata.layer: #CUSTOMER
+
+annotate view Z08ET_C_CONTITM with
+{
+  @UI.facet: [ { id:            'Item',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Dados do Item',
+                 position:      10 } ]
+
+  @UI: { lineItem:       [ { position: 10, label: 'Empresa' } ],
+         identification: [ { position: 10, label: 'Empresa' } ] }
+  companyCode;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Ano Fiscal' } ],
+         identification: [ { position: 20, label: 'Ano Fiscal' } ] }
+  fiscalYear;
+
+  @UI: { lineItem:       [ { position: 30, label: 'Nº Documento' } ],
+         identification: [ { position: 30, label: 'Nº Documento' } ] }
+  documentNumber;
+
+  @UI: { lineItem:       [ { position: 40, label: 'Nº Item' } ],
+         identification: [ { position: 40, label: 'Nº Item' } ] }
+  itemNumber;
+
+  @UI: { lineItem:       [ { position: 50, label: 'Conta Razão' } ],
+         identification: [ { position: 50, label: 'Conta Razão' } ] }
+  glAccount;
+
+  @UI: { lineItem:       [ { position: 60, label: 'Montante' } ],
+         identification: [ { position: 60, label: 'Montante' } ] }
+  amount;
+
+  @UI: { lineItem:       [ { position: 70, label: 'Débito/Crédito' } ],
+         identification: [ { position: 70, label: 'Débito/Crédito' } ] }
+  debitCreditCode;
+
+  @UI: { lineItem:       [ { position: 80, label: 'Moeda' } ],
+         identification: [ { position: 80, label: 'Moeda' } ] }
+  currency;
+}

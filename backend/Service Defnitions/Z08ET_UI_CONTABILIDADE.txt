@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition - Contabilidade T'
+define service Z08ET_UI_CONTABILIDADE {
+  expose Z08ET_C_CONTCAB as documentos_contabeis;
+  expose Z08ET_C_CONTITM as itens_documentos_contabeis;
+}

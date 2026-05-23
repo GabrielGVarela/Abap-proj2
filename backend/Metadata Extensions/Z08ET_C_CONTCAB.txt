@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+    typeName: 'Documento Contábil',
+    typeNamePlural: 'Documentos Contábeis',
+    title: { type: #STANDARD, value: 'documentNumber' }
+}
+
+annotate view Z08ET_C_CONTCAB with
+{
+  @UI.facet: [ 
+    { id:            'Header',
+      purpose:       #STANDARD,
+      type:          #IDENTIFICATION_REFERENCE,
+      label:         'Dados Gerais',
+      position:      10 },
+      
+    { id:            'Items',
+      purpose:       #STANDARD,
+      type:          #LINEITEM_REFERENCE,
+      label:         'Itens do Documento',
+      position:      20,
+      targetElement: '_Item' }
+  ]
+
+  @UI: { lineItem:       [ { position: 10, label: 'Empresa' } ],
+         identification: [ { position: 10, label: 'Empresa' } ] }
+  companyCode;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Ano Fiscal' } ],
+         identification: [ { position: 20, label: 'Ano Fiscal' } ] }
+  fiscalYear;
+
+  @UI: { lineItem:       [ { position: 30, label: 'Nº Documento' } ],
+         identification: [ { position: 30, label: 'Nº Documento' } ] }
+  documentNumber;
+
+  @UI: { lineItem:       [ { position: 40, label: 'Data do Doc.' } ],
+         identification: [ { position: 40, label: 'Data do Doc.' } ] }
+  documentDate;
+
+  @UI: { lineItem:       [ { position: 50, label: 'Tipo Doc.' } ],
+         identification: [ { position: 50, label: 'Tipo Doc.' } ] }
+  documentType;
+
+  @UI: { lineItem:       [ { position: 60, label: 'Moeda' } ],
+         identification: [ { position: 60, label: 'Moeda' } ] }
+  currency;
+}
