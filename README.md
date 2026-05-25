@@ -32,18 +32,15 @@ To demonstrate the actual consumption of the exposed API, the SAP BTP environmen
 
 ---
 
-## API Endpoints & Consumption
+## 🌐 API Endpoints & Consumption
 
-The backend service exposes its metadata and entity sets through the standard SAP Gateway endpoint structure:
+The backend service exposes its metadata and entity sets through the standard SAP Gateway endpoint structure using OData V2.
 
-* **Service Root URL:** `https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/`
+* **Production Endpoint Pattern:** `https://<sap-server-host>:<port>/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/`
 
-### Connection & Payload Testing (Development Environment Validation)
-
-During the development phase within the lab environment, connectivity and real-time integration were validated through the SAP BTP terminal. 
-
-Although the backend server host (`vhcaskas4.kasolution.com.br`) is hosted on a private corporate network, the API schema (`$metadata`) was successfully requested and verified from external development nodes using standard HTTP client tools:
+### Connection & Payload Testing (Sandbox Validation)
+To validate integration between the backend and external development nodes (such as SAP BTP Business Application Studio), connectivity was tested via terminal using standard HTTP client tools to inspect the service schema (`$metadata`):
 
 ```bash
-# This command was used to validate the live OData gateway response inside the lab network
-curl -k [https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/](https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/)\$metadata
+# Replace <sap-server-host> and <port> with your specific landscape credentials
+curl -k https://<sap-server-host>:<port>/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/\$metadata
