@@ -38,8 +38,12 @@ The backend service exposes its metadata and entity sets through the standard SA
 
 * **Service Root URL:** `https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/`
 
-### Connection & Payload Testing (via BTP Terminal)
-To validate the architecture, the schema can be requested from external development nodes using standard HTTP client tools:
+### Connection & Payload Testing (Development Environment Validation)
+
+During the development phase within the lab environment, connectivity and real-time integration were validated through the SAP BTP terminal. 
+
+Although the backend server host (`vhcaskas4.kasolution.com.br`) is hosted on a private corporate network, the API schema (`$metadata`) was successfully requested and verified from external development nodes using standard HTTP client tools:
 
 ```bash
+# This command was used to validate the live OData gateway response inside the lab network
 curl -k [https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/](https://vhcaskas4.kasolution.com.br:44300/sap/opu/odata/sap/ZSB_08E_CONTABILIDADE/)\$metadata
